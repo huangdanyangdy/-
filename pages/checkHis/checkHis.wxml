@@ -1,0 +1,101 @@
+<view>
+  <view class="check-tit">
+    <view class="com-name">{{siteName}}</view>
+    <view class="com-name">{{siteAddress}}</view>
+  </view>
+  <view class="check-list" >
+    <view>1.场所类型</view>
+    <view class="radiobox" wx:if="{{siteType===1}}">第1类，将员工集体宿舍设置在车间或者仓库同一建筑内的工业场所</view>
+     <view class="radiobox" wx:if="{{siteType===2}}">第2类，利用住宅或出租房屋从事生产加工，住宿与生产混为一体的作坊式生产加工场所</view>
+      <view class="radiobox" wx:if="{{siteType===3}}">第3类，分布在临街商业用房或住宅内，住宿与经营混设在同一连接空间内的经营性场所'</view>
+       <view class="radiobox" wx:if="{{siteType===4}}">第4类，集中在城乡结合部、城中村，连片生产、经营和住宿的区域性“三合一”场所等</view>
+
+  </view>
+  <view class="check-list" >
+    <view>2.是否领取工商执照</view>
+    <view class="radiobox">{{haveBusinessLicense===0?'否':'是'}}</view>
+  </view>
+  <view class="check-list" >
+    <view>3.是否三合一</view>
+    <view class="radiobox">{{isThreeInOne===0?'否':'是'}}</view>
+  </view>
+  <view class="check-list" >
+    <view>4. 是否达到“三合一”场所消防安全条件</view>
+    <view class="radiobox">{{reachFireStandar===0?'否':'是'}}</view>
+  </view>
+  <view class="check-list" >
+    <view>5.建筑层数</view>
+    <view class="radiobox">{{floor}}层</view>
+  </view>  
+  <view class="check-list" >
+    <view>6. 建筑面积</view>
+    <view class="radiobox">{{area}}㎡</view>
+  </view>    
+  <view class="check-list" >
+    <view>7. 住宿人数</view>
+    <view class="radiobox">{{liveNumber}}人</view>
+  </view> 
+  <view class="check-list" >
+    <view>8. 厂房情况</view>
+    <view class="radiobox">{{factoryStatus===0?'自有':'租赁'}}</view>
+  </view>
+  <view class="check-list" >
+    <view>9. 消防设施情况</view>
+    <view class="radiobox" wx:if="{{fireFacilityStatus===0}}">无</view>
+    <view class="radiobox" wx:if="{{fireFacilityStatus===1}}">有</view>
+    <view class="radiobox" wx:if="{{fireFacilityStatus===2}}">不足</view>
+    <view class="radiobox" wx:if="{{fireFacilityStatus===3}}">损坏</view>
+    
+  </view>
+  <view class="check-list" >
+    <view>10. 疏散通道</view>
+    <view class="radiobox">
+      <view class="radiobox" wx:if="{{fireFacilityStatus===0}}">畅通</view>
+      <view class="radiobox" wx:if="{{fireFacilityStatus===1}}">堵塞</view>
+      <view class="radiobox" wx:if="{{fireFacilityStatus===2}}">闭锁</view>
+    </view>
+  </view>
+  <view class="check-list" >
+    <view>11. 使用煤气情况</view>
+    <view class="radiobox">{{gasUsage===0?'否':'是'}}</view>
+  </view>
+  <view class="check-list" >
+    <view>12. 火灾隐患及整改措施</view>
+    <view class="my-table">
+      <view class="tb-tit">
+        <view class="tit-1 play-center">#</view>
+        <view class="tit-2 play-center">隐患情况</view>
+        <view class="tit-3 play-center">整改措施</view>
+      </view>    
+      <view class="tb-content" wx:for="{{array}}" wx:if="{{!showMask}}">
+        <view class="tit-1 play-center">{{index+1}}</view>
+        <textarea class="tit-2" auto-height value="{{item.txt1}}" disabled  data-index="{{index+1}}" data-name="txt1" placeholder="请输入情况"></textarea>
+        <textarea class="tit-3" auto-height value="{{item.txt2}}" disabled data-index="{{index+1}}" data-name="txt2" placeholder="请输入措施"></textarea>
+      </view>        
+    </view>
+  </view>
+
+  <view class="check-list" >
+    <view>13. 现场照片</view>
+    <view class=" my-img-box">
+      <view class="img-items" wx:for="{{srcList}}" bindtap="prevImg" data-img-src="{{item}}" data-index="{{index}}">
+        <image src="{{item}}"></image>        
+      </view>
+    </view>
+  </view>
+    
+  <view class="check-list" >
+    <view>14. 签字照片</view>
+    <view class=" my-img-box" >
+      <view class="img-items" wx:for="{{sign_img}}" bindtap="prevImg" data-img-src="{{item}}" data-index="{{index}}">
+        <image src="{{item}}"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 图片预览 -->
+  <view class="my-toast" wx:if="{{showMask}}" bindtap="prevImg">
+    <image src="{{[imgSrc]}}"></image>
+  </view>
+
+  </view>
+ 

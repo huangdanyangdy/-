@@ -1,0 +1,70 @@
+.input-box{
+  width: 100%;
+  height: 100rpx;
+  padding: 15rpx 25rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  top:0rpx;
+   background: #efefef;
+   z-index: 1;
+}
+
+.box-left{
+  width: 90%;
+  padding: 10rpx 15rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* flex-wrap: wrap; */
+  font-size: 28rpx;
+
+}
+.box-right{
+  color: #1b82d2;
+}
+.box-left image{
+  width:40rpx;
+  height: 40rpx;
+  margin-left: 5rpx;
+}
+.box-left input{
+  width: 85%;
+}
+.situation-wrap{
+  width: 100%;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1rpx solid #ddd;
+  margin-top: 100rpx;
+
+}
+.situation-list{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ddd;
+}
+.situation-list:last-of-type{
+  border-bottom: none;
+}
+.com_name{
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 500;
+  line-height: 58rpx;
+}
+.com_addr{
+  color: #666;
+  font-size: 26rpx;
+}

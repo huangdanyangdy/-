@@ -1,0 +1,24 @@
+<view>
+  <view class="input-box">
+    <view class="box-left">
+      <image src="../../image/search.png"></image>
+      <input confirm-type="search" placeholder="输入场所名称或地址" bindinput="inputChange" value="{{searchText}}"></input>
+      <image src="../../image/cancel.png" bindtap="reset"></image>
+    </view>
+    <view class="box-right" bindtap="search">搜索</view>
+  </view>
+  <!-- 场所名称或地址列表 -->
+  <view class="situation-wrap">
+    <view class="situation-list"  bindtap="toDetail" wx:for="{{content}}">
+      <view class="list-left">
+        <view class="com_name">{{item.name}}</view>
+        <view class="com_addr">{{item.address}}</view>
+      </view>
+      <view class="right_arrows "></view>
+    </view>
+    
+
+  </view>
+
+  
+</view>

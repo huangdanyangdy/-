@@ -1,0 +1,24 @@
+<view>
+  <view class="my-top">
+    <view class="page-tit">基层安全巡查系统</view>
+    <view><image src="../../image/logo.png"></image> </view>  
+  </view>
+
+  <view class="login-box">
+  <form bindsubmit="formSubmit">
+    <view class="input-box">
+      <input placeholder="账号或手机号码" type="number" bindinput="userNameInput" value="{{userName}}"></input>
+    </view>
+    <view class="input-box">
+      <input placeholder="密码" password bindinput="pwd" value="{{password}}"></input>
+      <image src="../../image/cancel.png" bindtap="reset"></image>
+    </view>    
+    <button class="login-btn" style="width:600rpx;" bindtap="toHome">登录</button>
+    <button class="wechat-login" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"><image src="../../image/WeChat.png"/>微信登录</button>
+  </form> 
+  </view>
+
+  <view class="copy-right play-center">
+    技术支持：福建省菲莱特信息技术有限公司
+  </view>
+</view>

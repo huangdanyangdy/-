@@ -1,0 +1,50 @@
+<view>
+  <view  class="my-top">
+  <!-- 按钮组切换 -->
+    <view class="person-img" ><image src="../../image/person.png" bindtap="topwd"></image> </view>  
+    <view class="top-btn-box">
+      <view class="btn-items {{btn_active==1?'btn-items-active':''}}" data-btn_active="1" bindtap="checkout">场所档案</view>
+      <view class="btn-items {{btn_active==2?'btn-items-active':''}}" data-btn_active="2" bindtap="checkout">安全检查</view>
+    </view>
+  <!-- 总场所 -->
+    <view class="total-box" wx:if="{{btn_active==1}}" >
+      <view >{{totalsite}}</view>
+      <view>场所总数</view>
+    </view>
+  </view>
+  <!-- 中间功能区，当状态为“场所档案”时显示 -->
+  <view class="middle-box" wx:if="{{btn_active==1}}" style="margin-top:450rpx;">
+    <view class="function-list">
+      <view class="function-items" wx:for="{{func_list}}" wx:for-item="item" bindtap="toCheck" data-index="{{index}}">
+        <image src="{{item.imageSrc}}"></image>
+        <view>{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 当状态为“安全检查”时显示 -->
+  <view wx:if="{{btn_active==2}}" style="margin-top:224rpx;">
+    <view class="check-tit">检查任务</view>
+    <view class="check-items" bindtap="viewTasks" wx:for="{{currList}}" data-index="{{item.id}}" data-task-name="{{item.name}}">
+      <view>
+        <view class="check-date">{{item.name}}</view>
+        <view class="check-contents">共 {{item.totalSite}}项, 待检查 {{item.unCheck}}, 已检查 {{item.check}}, 待复查 {{item.unReCheck}}, 已复查 {{item.reChecked}}, 已完成 {{item.complete}}</view>
+      </view>
+      <view class="right_arrows"></view>
+    </view>
+
+    <view class="check-tit">历史记录</view>
+    <view class="check-items" wx:for="{{hisList}}" bindtap="viewTasks" data-index="{{item.id}}" data-task-name="{{item.name}}" >
+      <view>
+        <view class="check-date">{{item.name}}</view>
+        <view class="check-contents">{{item.totalSite}}</view>
+      </view>
+      <!-- 小箭头 -->
+      <view class="right_arrows"></view>
+    </view>
+    
+  </view>
+
+  <view class="copy-right play-center">
+    技术支持：福建省菲莱特信息技术有限公司
+  </view>
+</view>

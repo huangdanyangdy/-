@@ -1,0 +1,150 @@
+<view>
+  <view class="check-tit">
+    <view class="com-name">{{siteName}}</view>
+    <view class="com-name">{{siteAddress}}</view>
+    <view class="btn-box">
+      <view wx:if="{{showChangeButton}}"class="reset" bindtap="reset">修改</view>
+      <view wx:if="{{showReCheckButton}}" bindtap="toReCheck" class="reset">复查</view>
+    </view>
+  </view>
+ <form bindsubmit="formSubmit">
+    <view class="check-list" >
+    <view>1.场所类型</view>
+    <radio-group  name="siteType">    
+    <label wx:for="{{siteTypeList}}" class="radiobox">
+      <radio value="{{item.value}}" checked="{{item.checked}}" disabled="{{change}}"/>{{item.name}}
+    </label>  
+      
+    </radio-group>
+  </view>  
+  <view class="check-list" >
+    <view>2.是否领取工商执照</view>
+    <radio-group name="haveBusinessLicense">
+      <radio class="radiobox" wx:for="{{haveBusinessLicenseList}}" value="{{item.value}}" checked="{{item.checked}}" disabled="{{change}}">{{item.name}}</radio>
+    </radio-group>
+  </view>
+  <view class="check-list" >
+    <view>3.是否三合一</view>
+    <radio-group  name="isThreeInOne">
+     <radio class="radiobox" wx:for="{{isThreeInOneList}}" value="{{item.value}}" checked="{{item.checked}}" disabled="{{change}}">{{item.name}}</radio>
+    </radio-group>
+  </view>
+  <view class="check-list" >
+    <view>4. 是否达到“三合一”场所消防安全条件</view>
+    <radio-group  name="reachFireStandar">
+      <radio class="radiobox" wx:for="{{reachFireStandarList}}" value="{{item.value}}" checked="{{item.checked}}" disabled="{{change}}">{{item.name}}</radio>
+    </radio-group>
+  </view>
+  <view class="check-list" >
+    <view>5.建筑层数(单位：层)</view>
+    <input type="number" placeholder="请输入楼层数" name="floor" value="{{form.floor}}" disabled="{{change}}" class="radiobox"></input>
+  </view>  
+  <view class="check-list" >
+    <view>6. 建筑面积(单位：㎡)</view>
+    <input type="digit" placeholder="请输入面积" name="area" value="{{form.area}}"disabled="{{change}}" class="radiobox"></input>
+  </view>    
+  <view class="check-list" >
+    <view>7. 住宿人数(单位：人)</view>
+    <input type="number" placeholder="请输入人数" name="liveNumber" value="{{form.liveNumber}}" disabled="{{change}}" class="radiobox"></input>
+  </view> 
+  <view class="check-list" >
+    <view>8. 厂房情况</view>
+    <radio-group  name="factoryStatus">
+     <radio class="radiobox" wx:for="{{factoryStatusList}}" value="{{item.value}}" checked="{{item.checked}}" disabled="{{change}}">{{item.name}}</radio>
+    </radio-group>
+  </view>
+  <view class="check-list" >
+    <view>9. 消防设施情况</view>
+    <radio-group  name="fireFacilityStatus">
+      <radio class="radiobox" wx:for="{{fireFacilityStatusList}}" value="{{item.value}}" checked="{{item.checked}}" disabled="{{change}}">{{item.name}}</radio>
+    </radio-group>
+  </view>
+  <view class="check-list" >
+    <view>10. 疏散通道</view>
+    <radio-group  name="evacuationExit">
+      <radio class="radiobox" wx:for="{{evacuationExitList}}" value="{{item.value}}" checked="{{item.checked}}" disabled="{{change}}">{{item.name}}</radio>
+    </radio-group>
+  </view>
+  <view class="check-list" >
+    <view>11. 使用煤气情况</view>
+    <radio-group  name="gasUsage">
+      <radio class="radiobox" wx:for="{{gasUsageList}}" value="{{item.value}}" checked="{{item.checked}}" disabled="{{change}}">{{item.name}}</radio>
+    </radio-group>
+  </view>
+  <view class="check-list" wx:if="{{!showMask}}">
+    <view>12. 火灾隐患及整改措施</view>
+    <view class="my-table">
+      <view class="tb-tit">
+        <view class="tit-1 play-center">#</view>
+        <view class="tit-2 play-center">隐患情况</view>
+        <view class="tit-3 play-center">整改措施</view>
+      </view>    
+      <view class="tb-content" wx:for="{{array}}" >
+        <view class="tit-1 play-center">{{index+1}}</view>
+        <textarea class="tit-2" auto-height value="{{item.txt1}}" bindblur="inputtext" data-index="{{index+1}}" data-name="txt1" placeholder="请输入情况" disabled="{{change}}"></textarea>
+        <textarea class="tit-3" auto-height value="{{item.txt2}}" bindblur="inputtext" data-index="{{index+1}}" data-name="txt2" placeholder="请输入措施" disabled="{{change}}"></textarea>
+      </view>     
+      <view class="tb-content play-around"  > 
+        <view wx:if="{{!change}}" class="addBtn play-center" bindtap="subLine">-减少一行-</view>    
+        <view wx:if="{{!change}}" class="addBtn play-center" bindtap="addLine">+增加一行+</view>        
+      </view>       
+    </view>
+  </view>
+
+  <view class="check-list" >
+  <!-- wx:if="{{!my_photo}}" -->
+    <view>13. 现场拍照上传(长按图片可删除)</view>
+    <view class=" my-img-box">
+      <view class="play-center" >
+        <image wx:if="{{!change}}" src="{{src}}" bindtap="startPhoto" style="margin:40rpx; width:75rpx;height:75rpx;"></image>
+      </view>
+      <view class="img-items" wx:for="{{srcList}}"   bindlongtap="delImg" data-index="{{index}}"  data-img-src="{{item}}">
+        <image src="{{item}}" mut-bind:tap="prevImg" data-index="{{index}}"  data-img-src="{{item}}"></image>   
+      </view>
+    </view>
+  </view>
+    
+  <view class="check-list" >
+    <view>14. 签字拍照上传(长按图片可删除)</view>
+    <view class=" my-img-box" >
+      <view class="play-center" >
+        <image wx:if="{{!change}}" src="{{src}}" bindtap="startSign_img" style="margin:40rpx;width:75rpx;height:75rpx;"></image>
+      </view>
+      <view class="img-items" wx:for="{{sign_img}}" bindtap="prevImg"  data-img-src="{{item}}" bindlongtap="delsign_Img" data-index="{{index}}">
+      
+        <image src="{{item}}"></image>
+      </view>
+    </view>
+  </view>
+  <button wx:if="{{!change}}" form-type="submit" class="save_btn" style="width:650rpx;">保存</button>
+ </form>
+
+<!-- 图片预览 -->
+<view class="my-toast" wx:if="{{showMask}}" bindtap="prevImg">
+  <image src="{{[imgSrc]}}"></image>
+</view>
+<!-- 相机设置 -->
+ <view  wx:if="{{my_photo}}" class="cameraPosition" >
+    <camera  binderror="error" style="width: 100%; height:900rpx;position:absolute; top:10rpx;"></camera>
+    <!-- 照片预览 -->
+    <view class="my-img-box" style="position:absolute;bottom:105rpx;">
+    <!-- 判断是现场拍照 -->
+      <view class="img-items" wx:if="{{placeImgStatus}}" wx:for="{{srcList}}" bindlongtap="delImg" data-index="{{index}}">
+        <image src="{{item}}"></image>
+      </view>
+      <!-- 判断是签字拍照 -->
+      <view class="img-items" wx:if="{{signImgStatus}}" wx:for="{{sign_img}}" bindlongtap="delsign_Img" data-index="{{index}}">
+        <image src="{{item}}"></image>
+      </view>
+    </view>
+    <view class="camera_btn_box">
+      <view class="my-btn">
+        <button type="primary" bindtap="takePhoto">拍照</button>
+      </view>
+      <view class="my-btn">
+        <button type="primary" bindtap="stopPhoto">结束</button>
+      </view>
+    </view>
+  </view>
+  
+</view>

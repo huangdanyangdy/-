@@ -1,0 +1,60 @@
+<view>
+  <view class="check-tit">
+    <view>基本信息</view>
+    <view class="reset" bindtap="reset" data-flag="{{com_msg.id}}">修改</view>
+  </view>    
+  <view>
+    <view class="check-items">
+      <view class="items-left">单位名称 </view>
+      <view class="items-right">{{com_msg.unitName?com_msg.unitName:''}}</view>
+    </view>
+    <view class="check-items">
+      <view class="items-left">联  系  人 </view>
+      <view class="items-right">{{com_msg.linkName?com_msg.linkName:''}}</view>
+    </view>
+    <view class="check-items">
+      <view class="items-left">联系电话  </view>
+      <view class="items-right">{{com_msg.phone?com_msg.phone:''}}</view>
+    </view>
+    <view class="check-items">
+      <view class="items-left">地       址 </view>
+      <view class="items-right">{{com_msg.address?com_msg.address:''}}</view>
+    </view>
+    <view class="check-items">
+      <view class="items-left">房屋情况 </view>
+      <view class="items-right">{{houseStatusStr?houseStatusStr:''}}</view>
+    </view>
+    <view class="check-items">
+      <view class="items-left">经营范围 </view>
+      <view class="items-right">{{com_msg.businessScope?om_msg.businessScope:''}}</view>
+    </view>
+    <view class="check-items">
+      <view class="items-left">备注内容 </view>
+      <view class="items-right">{{com_msg.notes?com_msg.notes:''}}</view>
+    </view>
+  </view>
+  <view class="check-tit">
+    <view>当前任务</view>
+  </view>
+  <view class="situation-wrap" wx:for="{{taskList}}" bindtap="toCheck" data-index="{{item.taskId}}" data-status="{{item.status}}">
+      <view class="list-left">
+        <view class="com_name">{{item.name}}</view>
+        <view class="check-status">{{item.statusStr}}</view>
+      </view>
+      <view class="right_arrows "></view>    
+  </view>
+  <view class="check-tit">
+    <view>检查记录</view>
+  </view>
+  <view class="situation-wrap" wx:for="{{checkList}}" bindtap="viewCheckLog" data-index="{{item.id}}">
+      <view class="list-left" >
+        <view class="com_name">{{item.name}}</view>
+        <view class="check-status">已完成</view>
+      </view>
+      <view class="right_arrows "></view>
+    </view>
+  <view class="copy-right play-center">
+    技术支持：福建省菲莱特信息技术有限公司
+  </view>
+</view>
+    

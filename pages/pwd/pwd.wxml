@@ -1,0 +1,23 @@
+<view>
+<form bindsubmit="formSubmit">
+  <view class="login-box">
+    <view class="input-box">
+      <input placeholder="密码" type="number" name="old_pwd"></input>
+    </view>
+    <view class="input-box">
+      <input placeholder="新密码" password name="new_pwd" value="{{new_pwd}}"></input>
+      <image src="../../image/cancel.png" bindtap="reset" data-flag='1'></image>
+    </view>
+    <view class="input-box">
+      <input placeholder="重复新密码" password name="comfirm_pwd" value="{{comfirm_pwd}}"></input>
+      <image src="../../image/cancel.png" bindtap="reset" data-flag='2'></image>
+    </view>    
+    <button class="login-btn" form-type="submit" style="width:600rpx">保存</button>
+  </view>
+</form>
+  
+
+  <view class="copy-right play-center">
+    技术支持：福建省菲莱特信息技术有限公司
+  </view>
+</view>

@@ -1,0 +1,99 @@
+/* pages/reCheck/reCheck.wxss */
+.check-tit{
+  padding: 20rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  color:#666;
+  box-sizing: border-box;
+}
+.com-name{
+  line-height: 40rpx;
+}
+.check-list{
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+  line-height: 60rpx;
+}
+.my-textarea{
+  font-size: 28rpx;
+  line-height: 50rpx;
+  text-indent: 30rpx;
+}
+
+.my-img-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: scroll;
+}
+.img-items{
+  width: 150rpx;
+  height: 150rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:10rpx;
+}
+.my-img-box image{
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.cameraPosition{
+  width: 100%;
+  height: 100%;
+  padding-bottom:20rpx;
+  position: fixed;
+  left: 0;
+  top:0rpx;
+  z-index: 9;
+  background: #000000;
+  box-sizing: border-box;
+}
+
+.camera_btn_box{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15rpx;
+  position: absolute;
+  bottom:20rpx;
+}
+.my-toast{
+  width: 100%;
+  height: 100%;
+  /* padding-bottom:20rpx; */
+  position: fixed;
+  /* margin: auto; */
+  z-index: 9;
+  /* background: #999; */
+  left: 0;
+  top:0rpx;
+  box-sizing: border-box;
+}
+.my-toast image{
+  width: 100%;
+  height: 100%;
+}
+.my-btn{
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.save_btn{
+  width: 80%;
+  padding: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx auto;
+  color: #fff;
+  background:#1b82d2;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  border-radius:50rpx; 
+}

@@ -1,0 +1,101 @@
+
+.check-tit{
+  padding: 20rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  color:#666;
+  box-sizing: border-box;
+}
+.com-name{
+  line-height: 40rpx;
+}
+
+.check-list{
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+  line-height: 60rpx;
+}
+
+.my-table{
+  width:100%;
+  /* height:300rpx; */
+  border:1rpx solid #666;
+  box-sizing: border-box;
+}
+.radiobox{
+  display: flex;
+  padding: 10rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  width: 100%;
+  box-sizing: border-box;
+  color:#666;
+}
+.tb-tit{
+  width:100%;
+  display: flex;
+  background: #e8e8e8;
+  border-bottom:1rpx solid #666;
+  box-sizing: border-box;
+}
+.tit-1{
+  width:20%;
+  border-right:1rpx solid #666;
+  padding: 10rpx;
+
+}
+.tit-2{
+  width:40%;
+  border-right:1rpx solid #666;
+  padding: 10rpx;
+}
+
+.tit-3{
+  width:40%;
+  padding: 10rpx;
+}
+
+.tb-content{
+  width:100%;
+  display: flex;
+  background: #fff;
+  border-bottom:1rpx solid #666;
+  box-sizing: border-box;
+}
+.my-img-box{
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  overflow: scroll;
+}
+.img-items{
+  width: 150rpx;
+  height: 150rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:10rpx;
+}
+.my-img-box image{
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.my-toast{
+  width: 100%;
+  height: 100%;
+  /* padding-bottom:20rpx; */
+  position: fixed;
+  /* margin: auto; */
+  z-index: 9;
+  /* background: #999; */
+  left: 0;
+  top:0rpx;
+  box-sizing: border-box;
+}
+.my-toast image{
+  width: 100%;
+  height: 100%;
+}

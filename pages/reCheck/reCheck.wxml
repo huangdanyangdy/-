@@ -1,0 +1,70 @@
+<view>
+  <view class="check-tit">
+    <view class="com-name">{{siteName}}</view>
+    <view class="com-name">{{siteAddress}}</view>
+  </view>
+   
+  <form bindsubmit="formSubmit">
+    <view class="check-list" >
+      <view>1. 复查情况</view>
+    
+      <textarea placeholder="请输入复查情况>>" class="my-textarea"  name="status" value="{{form.status}}"  bindblur="inputtext" hidden="{{my_photo||showMask}}"></textarea>
+    </view>
+
+    <view class="check-list" >
+      <view>2. 现场拍照上传(长按图片可删除)</view>
+      <view class=" my-img-box">
+        <view class="play-center" >
+          <image src="{{src}}" bindtap="startPhoto" style="margin:40rpx;width:75rpx;height:75rpx;"></image>
+        </view>
+        <view class="img-items" wx:for="{{srcList}}" bindtap="prevImg" bindlongtap="delImg" data-index="{{index}}" data-img-src="{{item}}">
+          <image src="{{item}}"></image>
+        </view>
+      </view>
+    </view>
+    
+    <view class="check-list" >
+      <view>3. 签字拍照上传(长按图片可删除)</view>
+      <view class=" my-img-box" >
+        <view class="play-center" >
+          <image src="{{src}}" bindtap="startSign_img" style="margin:40rpx;width:75rpx;height:75rpx;"></image>
+        </view>
+        <view class="img-items" wx:for="{{sign_img}}" bindtap="prevImg" bindlongtap="delsign_Img" data-index="{{index}}" data-img-src="{{item}}">
+          <image src="{{item}}"></image>
+        </view>
+      </view>
+    </view>
+
+    <button  class="save_btn" form-type="submit" style="width:650rpx">保存</button>
+  </form>
+  
+  <!-- 图片预览 -->
+<view class="my-toast" wx:if="{{showMask}}" bindtap="prevImg">
+  <image src="{{[imgSrc]}}"></image>
+</view>
+  <!-- 相机设置 -->
+ <view  wx:if="{{my_photo}}" class="cameraPosition" >
+    <camera  binderror="error" style="width: 100%; height:900rpx;position:absolute; top:10rpx;"></camera>
+    <!-- 照片预览 -->
+    <view class="my-img-box" style="position:absolute;bottom:105rpx;" >
+    <!-- 判断是现场拍照 -->
+      <view class="img-items" wx:if="{{placeImgStatus}}" wx:for="{{srcList}}" bindlongtap="delImg" data-index="{{index}}">
+        <image src="{{item}}"></image>
+      </view>
+      <!-- 判断是签字拍照 -->
+      <view class="img-items" wx:if="{{signImgStatus}}" wx:for="{{sign_img}}" bindlongtap="delsign_Img" data-index="{{index}}">
+        <image src="{{item}}"></image>
+      </view>
+    </view>
+    <view class="camera_btn_box">
+      <view class="my-btn">
+        <button type="primary" bindtap="takePhoto">拍照</button>
+      </view>
+      <view class="my-btn">
+        <button type="primary" bindtap="stopPhoto">结束</button>
+      </view>
+    </view>
+  </view>
+
+  
+</view>

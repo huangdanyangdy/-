@@ -1,0 +1,49 @@
+<view>
+  <view class="check-tit">
+    <view>基本信息</view>
+  </view>
+  <form bindsubmit="formSubmit">
+    <view>
+      <view class="check-items">
+        <view class="items-left">单位名称 </view>
+        <textarea auto-height class="items-right"  value="{{com_msg.unitName}}" name="unitName"/>
+      </view>
+      <view class="check-items">
+        <view class="items-left">联  系  人 </view>
+        <input class="items-right" value="{{com_msg.linkName}}" name="linkName"/>
+      </view>
+      <view class="check-items">
+        <view class="items-left">联系电话  </view>
+        <input class="items-right" value="{{com_msg.phone}}" name="phone"/>
+      </view>
+      <view class="check-items">
+        <view class="items-left">地       址 </view>
+        <textarea class="items-right" auto-height value="{{com_msg.address}}" name="address"></textarea>
+      </view>
+      <view class="check-items">
+        <view class="items-left">房屋情况</view>
+        <radio-group  name="house_status" class="my_radio" >          
+            <radio  wx:for="{{house_items}}" wx:key="{{item.value}}" value="{{item.value}}" checked="{{item.checked}}" >{{item.name}}</radio>
+        </radio-group>
+        
+        <!-- <input class="items-right" value="{{com_msg.house_status}}" name="house_status"/> -->
+      </view>
+      <view class="check-items">
+        <view class="items-left">经营范围 </view>
+        <textarea auto-height class="items-right" value="{{com_msg.businessScope}}" name="businessScope"/>
+      </view>
+      <view class="check-items">
+        <view class="items-left">备注内容 </view>
+        <textarea class="items-right" auto-height value="{{com_msg.notes}}" name="notes"></textarea>
+      </view>
+    </view>
+    <button class="save_btn" form-type="submit" style="width:650rpx;">保存</button>
+  </form>
+  
+  
+  <view class="copy-right play-center">
+    技术支持：福建省菲莱特信息技术有限公司
+  </view>
+
+</view>
+    
